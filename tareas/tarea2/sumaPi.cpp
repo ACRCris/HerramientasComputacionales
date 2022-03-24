@@ -28,7 +28,7 @@ int main(int argc, char **argv)
      pi2 += 4*f2(ii);
      pi3 += 4*f3(ii);
     // calcular las diferencias porcentuales
-    std::cout << ii << "    " << pi1<<std::endl;
+    std::cout << ii << "    " << pi1<< "    " << pi2<<std::endl;
     float delta1 = std::fabs(pi1 - M_PI)/M_PI;
     float delta2 = std::fabs(pi2 - M_PI)/M_PI;
     float delta3 = std::fabs(pi3 - M_PI)/M_PI;
@@ -50,7 +50,7 @@ float f1(int n)
 
 float f2(int n)
 {
-  return 0;
+  return 1/(4*n + 1) - 1/(4*n+3);
   // escribir aca la implementacion de la segunda forma de la suma hasta n terminos totales
 }
 
