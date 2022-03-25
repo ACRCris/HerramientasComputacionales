@@ -5,7 +5,7 @@
 
 #include <iostream> // header para imprimir a pantalla
 #include <cmath> // funciones y constantes matematicas, como fabs (valor absoluto) y M_PI (numero pi)
-
+#include<iomanip>
 // declaracion de las funciones (no cambiar)
 // n es el numero de terminos de la suma.
 // tener en cuenta como cambian los limites cuando se usan f2 y f3
@@ -15,20 +15,18 @@ float f3(int n);
 
 int main(int argc, char **argv)
 {
-  // configurar std::cout para que imprima en notacion cientifica y con 7 cifras decimales (precision de float)
-
-  float pi1=0;
-    float pi2 =0;
-    float pi3 =0;
+  // configurar std::cout para que imprima en notacion cientifica y con 7 cifras decimales (precision de float
 
   
-  for(int ii = 0; ii <= 10000;  ii++) {
+  for(int ii = 1; ii <= 100000; ++ii) {
+    
     // Aproximacion de numero pi con cada forma de la suma
-     pi1 += 4*f1(ii);
-     pi2 += 4*f2(ii);
-     pi3 += 4*f3(ii);
+    float pi1 =4*f1(ii);
+    float pi2 =4*f2(ii);
+    float pi3 =4*f3(ii);
+   
     // calcular las diferencias porcentuales
-    std::cout << ii << "    " << pi1<< "    " << pi2<<std::endl;
+    std::cout<<std::setprecision(8) << ii << "    " << pi1<< "    " << pi2<<"   "<<pi3<<std::endl;
     float delta1 = std::fabs(pi1 - M_PI)/M_PI;
     float delta2 = std::fabs(pi2 - M_PI)/M_PI;
     float delta3 = std::fabs(pi3 - M_PI)/M_PI;
@@ -42,20 +40,39 @@ int main(int argc, char **argv)
 // TODO implementacion de las funciones
 float f1(int n)
 {
-  
-  return std::pow(-1,n)/(2*n + 1);
+  float piCuartos = 0;
+  for(int i= 0; i<=n; i++){
+    piCuartos+=std::pow(-1,i)/(2*i + 1); 
+  } 
+  return piCuartos;
   // escribir aca la implementacion de la forma	original de la suma hasta n terminos
   
 }
 
 float f2(int n)
 {
-  return 1/(4*n + 1) - 1/(4*n+3);
+  float piCuartos1 = 0;
+  float piCuartos2 = 0;
+  for(int i=0; i<= n; i++){
+    piCuartos1 += 1.0/(4.0*i + 1);
+  }
+  for(int i=0; i<= n; i++){
+    piCuartos2 += 1.0/(4.0*i+3);
+  }
+  
+  
+  return piCuartos1- piCuartos2;
   // escribir aca la implementacion de la segunda forma de la suma hasta n terminos totales
 }
 
 float f3(int n)
 {
-  return 0;
+  float piCuartos = 0;
+  
+  for(int i = 0; i<= n ; i++){
+    piCuartos += 2.0/((4.0*i+1.0)*(4.0*i+3.0));
+    // std::cout<<((4.0*n+1.0)*(4.0*n+3.0))<<std::endl;
+  }
+  return piCuartos;
   // escribir aca la implementacion de la tercera forma de la suma hasta n terminos totales
 }
