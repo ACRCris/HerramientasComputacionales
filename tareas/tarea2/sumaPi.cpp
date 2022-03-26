@@ -6,6 +6,7 @@
 #include <iostream> // header para imprimir a pantalla
 #include <cmath> // funciones y constantes matematicas, como fabs (valor absoluto) y M_PI (numero pi)
 #include<iomanip>
+#include <fstream>
 // declaracion de las funciones (no cambiar)
 // n es el numero de terminos de la suma.
 // tener en cuenta como cambian los limites cuando se usan f2 y f3
@@ -17,8 +18,8 @@ int main(int argc, char **argv)
 {
   // configurar std::cout para que imprima en notacion cientifica y con 7 cifras decimales (precision de float
 
-  
-  for(int ii = 1; ii <=500000; ++ii) {
+  std:: ofstream out ("diferenciasPorcentuales.xlsx");
+  for(int ii = 1; ii <=10000; ++ii) {
     
     // Aproximacion de numero pi con cada forma de la suma
     float pi1 =4*f1(ii);
@@ -26,13 +27,15 @@ int main(int argc, char **argv)
     float pi3 =4*f3(ii);
    
     // calcular las diferencias porcentuales
-     std::cout<<std::setprecision(8) << ii << "    " << pi1<< "    " << pi2<<"   "<<pi3<<std::endl;
+    // std::cout<<std::setprecision(8)<<std::scientific << ii << "    " << pi1<< "    " << pi2<<"   "<<pi3<<std::endl;
     float delta1 = std::fabs(pi1 - M_PI)/M_PI;
     float delta2 = std::fabs(pi2 - M_PI)/M_PI;
     float delta3 = std::fabs(pi3 - M_PI)/M_PI;
     // imprimir
-    // std::cout << ii <<std::setprecision(8)<< "    " << delta1 << "   " << delta2 << "   " << delta3 << "\n";
+    out<<std::setprecision(7)<<std::scientific<< ii<< ";" << delta1 << ";" << delta2 << ";" << delta3 << "\n";
+    std::cout<<std::setprecision(7)<<std::scientific<< ii<<" "<< "    " << delta1 << "   " << delta2 << "   " << delta3 << "\n";
   }
+  out.close();
 
   return 0;
 }
