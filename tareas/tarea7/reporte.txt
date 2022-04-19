@@ -1,0 +1,5 @@
+En el codigo se	encontraron lo siguientes errores de compilacion:
+   (1) fixing.cpp: In function ‘double baz(double)’:
+   fixing.cpp:32:12: error: return-statement with no value, in function returning ‘double’ [-fpermissive]
+   (2)fixing.cpp:34:20: error: expected ‘;’ before ‘}’ token
+   
