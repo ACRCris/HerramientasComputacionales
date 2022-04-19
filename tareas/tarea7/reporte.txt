@@ -1,5 +1,44 @@
 En el codigo se	encontraron lo siguientes errores de compilacion:
-   (1) fixing.cpp: In function ‘double baz(double)’:
-   fixing.cpp:32:12: error: return-statement with no value, in function returning ‘double’ [-fpermissive]
-   (2)fixing.cpp:34:20: error: expected ‘;’ before ‘}’ token
-   
+   fixing.cpp: In function ‘double baz(double)’:
+   (1)fixing.cpp:33:12: error: return-statement with no value, in function returning ‘double’ [-fpermissive]
+   (2)fixing.cpp:35:20: error: expected ‘;’ before ‘}’ token
+
+   Para el error de compilacion (1) ubicado en la linea 32. La funcion baz para el caso x=0 no tenia un
+   retorno de tipo double como indica la declaracion de funcion baz, por lo cual se le agrego un cero el
+   setencia return pues dada como se definia la funcion baz para el caso en que x=0 la funcion iba retornar
+   0 si	ejecutaba las instruciones:
+
+	  double v = 1-(x+1);
+  	  return std::sqrt(x);
+
+   Para el error de compilacion (1) ubicado en la linea 34 simplmente se agrego el ; requerido al final de
+   la instruccion de la linea 34 y la funcion pudiera retornar el valor de respectivo para los valores
+   x != 0
+
+
+Ademas se encontraron tambien en el codigo los siguientes errores de ejecucion:
+   (1) fixing.cpp:22:52: runtime error: division by zero (sanitizers)
+
+   Para el error de ejecucion (1) ubicado en la linea 22 y generado al ejecutar las instrucciones de la
+   linea 14 y 15, pues a las funcion foo se le pasa uno de los parametros cero a los argumentos de la
+   funcion causando el error en la instruccion:
+
+   	   return a/b + b/bar(a, b) + b/a;
+
+   Error el cual se solvento agregando condicionales para los casos en que a=o o b=0 y/o bar(a,b) = 0,
+   dejando la misma instruccion para el caso en el que no se cumplen alguna de esas condiciones, obteniendo
+   el funcionamiento original de la funcion para a !=0, b != 0 y bar(a,b) != 0;
+
+
+Por ultimo se encontraron dos warnings con la bandera -Wall:
+    fixing.cpp: In function ‘double baz(double)’:
+    (1)fixing.cpp:38:9: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    (2)fixing.cpp:39:10: warning: unused variable ‘v’ [-Wunused-variable]    
+
+    Para el warning (1) ubicado en la linea 38 se cambio el operador de asignacion =, por el operador de
+    comparacion ==, y validar cuando x es igual a cero en la funcion baz y en tal caso retonar el valor 0
+    como originalmente se asume es el objetivo original de esa instruccion.
+
+    Para el warning (2) ubicado en la linea 39 el cambio que se realizo fue que la funcion en vez de
+    devolver la raiz cuadrada de x, devolvuelva la raiz cuadrada de v y asi la variable v tenga un uso
+    como se asume es el objetivo original de esa instruccion.

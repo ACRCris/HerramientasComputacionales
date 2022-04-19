@@ -1,7 +1,7 @@
 CXX=g++
-CXXFLAGS=-std=c++17 -g
+CXXFLAGS= -g
 SANITFLAGS=-fsanitize=address -fsanitize=leak -fsanitize=undefined
-VALGRINDFLAGS=--tool=memcheck --track-origins=yes --leak-check=full
+VALGRINDFLAGS=--tool=memcheck --track-origins=yes  --leak-check=full
 
 all : fixing.cpp
 	$(CXX) $(CXXFLAGS) fixing.cpp
@@ -10,10 +10,10 @@ sanitizers:fixing.cpp
 	./a.out
 debug:fixing.cpp
 	$(CXX) $(CXXFLAGS) fixing.cpp
-	gdb ./a.out
-valgrid:fixing.cpp
-	$(CXX) $(CXXFLAGS) $(VALGRINDFLAGS) fixing.cpp
-	./a.out
+	gdb --tui ./a.out
+valgrind:fixing.cpp
+	$(CXX) $(CXXFLAGS) fixing.cpp
+	valgrind $(VALGRINDFLAGS) ./a.out
 
 clean:
 	rm -rf *.x a.out *.x.*
