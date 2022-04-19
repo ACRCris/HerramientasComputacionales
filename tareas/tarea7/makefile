@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS= -g
+CXXFLAGS= -g -Wall
 SANITFLAGS=-fsanitize=address -fsanitize=leak -fsanitize=undefined
 VALGRINDFLAGS=--tool=memcheck --track-origins=yes  --leak-check=full
 

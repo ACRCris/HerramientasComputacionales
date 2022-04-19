@@ -39,6 +39,7 @@ void Cuerpo::Mueva_V(double dt,double CTE){
 }
 void Cuerpo::Dibujese(void){
   cout<<", "<<x<<"+"<<R<<"*cos(t),"<<m*Vx<<"+"<<R<<"*sin(t)";
+   
 }
 
 

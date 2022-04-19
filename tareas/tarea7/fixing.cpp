@@ -29,7 +29,7 @@ int foo(int a, int b){
 
 int bar(int a, int b)
 {
-  unsigned int c = a;
+  int c = a;
   return c + a - b;
 }
 

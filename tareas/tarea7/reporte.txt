@@ -30,7 +30,7 @@ Ademas se encontraron tambien en el codigo los siguientes errores de ejecucion:
    el funcionamiento original de la funcion para a !=0, b != 0 y bar(a,b) != 0;
 
 
-Por ultimo se encontraron dos warnings con la bandera -Wall:
+Se encontraron dos warnings con la bandera -Wall:
     fixing.cpp: In function ‘double baz(double)’:
     (1)fixing.cpp:38:9: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
     (2)fixing.cpp:39:10: warning: unused variable ‘v’ [-Wunused-variable]    
@@ -42,3 +42,8 @@ Por ultimo se encontraron dos warnings con la bandera -Wall:
     Para el warning (2) ubicado en la linea 39 el cambio que se realizo fue que la funcion en vez de
     devolver la raiz cuadrada de x, devolvuelva la raiz cuadrada de v y asi la variable v tenga un uso
     como se asume es el objetivo original de esa instruccion.
+
+
+Por ultimo no se encontraron erroes de valgrind, pero si se arreglo un error de casting en la linea 32
+quitando la setencia unsigned y de esta forma se le pueda asignar un numero negativo a la variable c
+de esa linea.
