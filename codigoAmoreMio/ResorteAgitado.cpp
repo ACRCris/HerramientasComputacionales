@@ -38,8 +38,8 @@ void Cuerpo::Mueva_V(double dt,double CTE){
   Vx+=Fx*(CTE*dt/m);
 }
 void Cuerpo::Dibujese(void){
-  cout<<", "<<x<<"+"<<R<<"*cos(t),"<<m*Vx<<"+"<<R<<"*sin(t)";
-   
+  // cout<<", "<<x<<"+"<<R<<"*cos(t),"<<m*Vx<<"+"<<R<<"*sin(t)";
+  cout<<x<<" , "<<m*Vx<<endl; 
 }
 
 
@@ -81,14 +81,14 @@ int main(void)
   T=2*M_PI/OmegaResorte;  tmax=10*T; Deltat=T/2000;  tdibujo=tmax/ndibujos;
 
   Resorte.Inicie(XResorte, VResorte, KResorte, MResorte, 0.05);
-  InicieAnimacion(XResorte, PResorte);
+  //InicieAnimacion(XResorte, PResorte);
 
   for(t=0,tdibujo=0; t<tmax; t+=Deltat,tdibujo+=Deltat){
     //Graficar
     if(tdibujo > tmax/ndibujos){
-	InicieCuadro();
+      //InicieCuadro();
 	Resorte.Dibujese();
-	TermineCuadro();
+	//TermineCuadro();
 	tdibujo=0;
       }
     //Mover el resorte por PEFRL
