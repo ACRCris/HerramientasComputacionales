@@ -5,7 +5,7 @@ set grid
 set xlabel "Time"
 set ylabel "Size"
 set log xy
-set key font ",45"
+set key font ",4.5"
 set style line 1 \
     linecolor rgb '#0060ad' \
     linetype 1 linewidth 1 \
@@ -16,5 +16,5 @@ set style line 2 \
     linetype 1 linewidth 1 \
     pointtype 7 pointsize 0.25
 
-plot 'datost1.txt' w lp, 'datost2.txt' w lp, 'datost4.txt' using 1:2:3 with yerrorbars pointsize 0.25, '' with linespoints linestyle 2, 'datost8.txt' using 1:2:3 with yerrorbars, '' with linespoints linestyle 1 
+plot 'datost1.txt' w lp, 'datost2.txt' w lp, 'datost4.txt' using 1:2:3 with yerrorbars linestyle 2, '' with linespoints linestyle 2, 'datost8.txt' using 1:2:3 with yerrorbars linestyle 1, '' with linespoints linestyle 1 
 plot 'datost8.txt' using 1:2:3 with yerrorbars, '' with linespoints linestyle 1
