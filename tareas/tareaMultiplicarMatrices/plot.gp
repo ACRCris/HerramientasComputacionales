@@ -9,4 +9,4 @@ set style line 1 \
     linetype 1 linewidth 2 \
     pointtype 7 pointsize 1.5
 plot 'datost1.txt' w lp, 'datost2.txt' w lp, 'datost4.txt' w lp, 'datost8.txt' with xerrorbars 
-plot 'datost8.txt'
+plot 'datost8.txt' with linespoints linestyle 1
