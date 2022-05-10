@@ -27,4 +27,4 @@ set style line 4 \
     pointtype 7 pointsize 0.25
     
 plot 'datost1.txt' using 1:2:3 with yerrorbars linestyle 4, '' with linespoints linestyle 4, 'datost2.txt' using 1:2:3 with yerrorbars linestyle 3, '' with linespoints linestyle 3, 'datost4.txt' using 1:2:3 with yerrorbars linestyle 2, '' with linespoints linestyle 2, 'datost8.txt' using 1:2:3 with yerrorbars linestyle 1, '' with linespoints linestyle 1 
-plot 'datost8.txt' using 1:2:3 with yerrorbars, '' with linespoints linestyle 1
+
