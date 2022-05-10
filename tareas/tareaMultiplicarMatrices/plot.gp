@@ -5,6 +5,7 @@ set grid
 set xlabel "Time"
 set ylabel "Size"
 set log xy
+set key font ",8"
 set style line 1 \
     linecolor rgb '#0060ad' \
     linetype 1 linewidth 1 \
