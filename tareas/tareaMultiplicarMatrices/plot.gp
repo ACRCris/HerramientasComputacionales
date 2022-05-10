@@ -1,9 +1,7 @@
 set term pdf
 set out "productoMatrices.pdf"
-# set xlabel "Nterms"
-# set ylabel "Percentual difference"
 set log xy
-plot 'datost1.txt' w lp lw 3
-replot 'datost2.txt' w lp lw 3
-replot 'datost4.txt' w lp lw 3
-replot 'datost8.txt' w lp lw 3
+set xlabel "Time"
+set ylabel "Size"
+plot 'datost1.txt', 'datost2.txt', 'datost4.txt', 'datost8.txt'  w lp lw 3
+
