@@ -1,5 +1,5 @@
 set term pdf
-set out "grafica.pdf"
+set out "graficaNormal.pdf"
 set key font ",4"
 set style line 4 \
     linecolor rgb '#0060ad' \
@@ -7,4 +7,4 @@ set style line 4 \
     pointtype 7 pointsize 0.25
 
 
-plot 'grafica.txt'
+plot 'datosNormal.txt'
