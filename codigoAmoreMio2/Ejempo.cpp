@@ -8,8 +8,8 @@ int main(){
   double x; int i;
   double sigma=2,mu=3;  
   
-  for(i=0;i<1e4;i++)
-    cout<<i<<" "<<ran2.gauss(mu,sigma)<<endl;
+  for(i=0;i<1e2;i++)
+    cout<<ran2.gauss(mu,sigma)<<" "<<i<<endl;
 
   return 0;
 }
