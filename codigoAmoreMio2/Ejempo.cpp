@@ -9,7 +9,7 @@ int main(){
   double sigma=2,mu=3;  
   
   for(i=0;i<1e2;i++)
-    cout<<ran2.gauss(mu,sigma)<<" "<<i<<endl;
+    cout<<ran2.r()<<" "<<ran2.gauss(mu,sigma)<<" "<<endl;
 
   return 0;
 }
